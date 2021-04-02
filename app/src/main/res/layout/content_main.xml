@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".view.MainActivity"
+        tools:showIn="@layout/activity_main">
+
+        <ImageView
+            android:id="@+id/content_main_header_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/gap_260dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorBgHeader"
+            android:contentDescription="@string/download_img_desc"
+            android:padding="@dimen/gap_100dp"
+            android:src="@drawable/ic_download" />
+
+        <RadioGroup
+            android:id="@+id/download_option_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/content_main_header_img"
+            android:layout_margin="@dimen/gap_16dp"
+            android:gravity="center_vertical">
+
+            <RadioButton
+                style="@style/RadioButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/download_using_glide" />
+
+            <RadioButton
+                style="@style/RadioButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/download_using_loadapp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            <RadioButton
+                style="@style/RadioButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/download_using_refrofit"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+        </RadioGroup>
+
+        <com.udacity.button.AnimatingButton
+            android:id="@+id/custom_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/gap_60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/gap_16dp"
+            app:textColor="@color/white" />
+
+    </RelativeLayout>
+</layout>
