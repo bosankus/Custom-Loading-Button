@@ -33,7 +33,7 @@ class AppModule {
     ): NotificationCompat.Builder = NotificationCompat.Builder(
         app,
         NOTIFICATION_CHANNEL_ID
-    ).setSmallIcon(R.drawable.ic_assistant)
-
+    )
+        .setSmallIcon(R.drawable.ic_assistant)
 
 }

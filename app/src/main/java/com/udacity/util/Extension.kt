@@ -11,13 +11,8 @@ import androidx.core.content.ContextCompat
 
 /**Created by
 Author: Ankush Bose
-Date: 29,March,2021
+Date: 27,March,2021
  **/
-
-fun AnimatorSet.disableView(view: View) = apply {
-    doOnStart { view.isEnabled = false }
-    doOnEnd { view.isEnabled = true }
-}
 
 fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

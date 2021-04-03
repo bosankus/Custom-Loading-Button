@@ -12,8 +12,9 @@ import kotlin.properties.Delegates
 
 /**Created by
 Author: Ankush Bose
-Date: 31,March,2021
+Date: 27,March,2021
  **/
+
 class AnimatingButton @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
@@ -78,11 +79,13 @@ class AnimatingButton @JvmOverloads constructor(
         }
     }
 
+    // method to stop animation on call
     fun startLoading() {
         if (buttonState == ButtonState.Completed) buttonState = ButtonState.Loading
         valueAnimator.start()
     }
 
+    // method to start animation on call
     fun stopLoading() {
         valueAnimator.cancel()
         buttonState = ButtonState.Completed
@@ -90,6 +93,7 @@ class AnimatingButton @JvmOverloads constructor(
         requestLayout()
     }
 
+    // method to create the circle pattern inside button
     private val rect = RectF(
         750f,
         50f,
@@ -97,24 +101,25 @@ class AnimatingButton @JvmOverloads constructor(
         110f
     )
 
-
+    // method to draw using canvas
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+
         paint.strokeWidth = 0f
         paint.color = buttonBackgroundColor
-        /*canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), paint)*/
+
         canvas.drawRoundRect(0f, 0f, width.toFloat(), height.toFloat(), 20f, 20f, paint)
 
-
         if (buttonState == ButtonState.Loading) {
-            paint.color = Color.parseColor("#004349")
+            paint.color = ContextCompat.getColor(context, R.color.colorPrimaryDark)
             canvas.drawRoundRect(
                 0f, 0f,
                 (width * (progress / 100)).toFloat(), height.toFloat(), 20f, 20f, paint
             )
-            paint.color = Color.parseColor("#F9A825")
+            paint.color = ContextCompat.getColor(context, R.color.colorAccent)
             canvas.drawArc(rect, 0f, (360 * (progress / 100)).toFloat(), true, paint)
         }
+
         val buttonText =
             if (buttonState == ButtonState.Loading)
                 resources.getString(R.string.loading)

@@ -11,7 +11,7 @@
     <string name="button_name">Click me</string>
     <string name="button_loading">We are loading </string>
     <string name="title_activity_detail">DetailActivity</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Downloading…</string>
     <string name="download">Download</string>
     <string name="download_img_desc">Download icon. Not clickable</string>
     <string name="download_status">Download Status</string>
@@ -21,7 +21,7 @@
     <string name="download_using_loadapp">LoadApp - Current repository by Udacity</string>
     <string name="download_using_refrofit">Retrofit - Type-safe HTTP client for Android and Java by Square, Inc</string>
     <string name="no_file_selection">You have not selected any file to download</string>
-    <string name="default_noti_title">\"Udacity: Android Kotlin Nanodegree \"</string>
+    <string name="default_noti_title">Udacity: Android Kotlin Nanodegree</string>
     <string name="default_noti_body">The Project 3 repository is downloaded</string>
     <string name="default_noti_action">Check update</string>
 </resources>

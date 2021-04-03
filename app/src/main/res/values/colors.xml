@@ -5,4 +5,6 @@
     <color name="colorAccent">#F9A825</color>
     <color name="white">#FFFFFF</color>
     <color name="colorBgHeader">#0B2239</color>
+
+    <color name="custom">#004349</color>
 </resources>

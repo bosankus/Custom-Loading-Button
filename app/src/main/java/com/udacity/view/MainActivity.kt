@@ -26,6 +26,11 @@ import com.udacity.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+/**Created by
+Author: Ankush Bose
+Date: 27, March,2021
+ **/
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
@@ -40,8 +45,6 @@ class MainActivity : AppCompatActivity() {
     private var downloadContentObserver: ContentObserver? = null
     private var downloadFileName = ""
     private var downloadID: Long = 0
-    private lateinit var action: NotificationCompat.Action
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -173,6 +176,11 @@ class MainActivity : AppCompatActivity() {
             downloadManager.enqueue(request)// enqueue puts the download request in the queue.
 
         downloadManager.registerContentObserver()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
     }
 
     companion object {

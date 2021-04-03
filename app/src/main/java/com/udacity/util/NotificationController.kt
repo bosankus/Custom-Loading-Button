@@ -19,15 +19,13 @@ Date: 02,April,2021
 fun showNotification(
     context: Context,
     notificationTitle: String = context.resources.getString(R.string.default_noti_title),
-    notificationBody: String = context.resources.getString(R.string.default_noti_title),
+    notificationBody: String = context.resources.getString(R.string.default_noti_body),
     notificationId: Int = NOTIFICATION_ID.hashCode(),
     status: DownloadStatus,
     fileName: String,
     notificationManager: NotificationManager,
     notificationBuilder: NotificationCompat.Builder
 ) {
-    // dismiss previous notification if any
-    notificationManager.cancel(notificationId)
 
     // Creating notification channel
     if (DEVICE_ANDROID_VERSION >= ANDROID_OREO)
@@ -36,13 +34,13 @@ fun showNotification(
     notificationBuilder.apply {
         setContentTitle(notificationTitle)
         setContentText(notificationBody)
+        setAutoCancel(true)
         addAction(
             R.drawable.ic_assistant,
             context.resources.getString(R.string.default_noti_action),
             generatePendingIntent(context, status, fileName)
         )
     }
-
     notificationManager.notify(notificationId, notificationBuilder.build())
 }
 
@@ -51,13 +49,12 @@ fun showNotification(
 private fun generatePendingIntent(
     context: Context,
     status: DownloadStatus,
-    fileName: String
+    fileName: String,
 ): PendingIntent {
     val intent = Intent(context, DetailActivity::class.java).apply {
-        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         putExtras(DetailActivity.bundleExtrasOf(status, fileName))
     }
-
     return PendingIntent.getActivities(
         context,
         NOTIFICATION_REQUEST_CODE,
